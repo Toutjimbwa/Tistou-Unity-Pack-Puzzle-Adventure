@@ -160,7 +160,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740238}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1740241
 Camera:
   m_ObjectHideFlags: 0
@@ -449,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da995067451026b409be9706fee2c6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Grade: 1
 --- !u!1 &166400359
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +711,7 @@ GameObject:
   - component: {fileID: 345009141}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,6 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da995067451026b409be9706fee2c6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Grade: 1
 --- !u!1 &408494611
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +867,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408494611}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &408494614
 Camera:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da995067451026b409be9706fee2c6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Grade: 2
 --- !u!1 &1163729356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1254620931}
   - component: {fileID: 1254620932}
+  - component: {fileID: 1254620933}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1822,6 +1826,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1254620933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254620930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da451bb64cb852249849c5e7357b9050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Grade: 0
 --- !u!1 &1256729411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +2064,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484157800}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1484157803
 Camera:
   m_ObjectHideFlags: 0

@@ -2,53 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TistouUnityPackPuzzleAdventure
+namespace TistouUnity
 {
-    public class PlayerMovement : MonoBehaviour
+    namespace PuzzleAdventurePack
     {
-
-        public float speed = 3.0F;
-        public float rotateSpeed = 3.0F;
-        public float jumpSpeed = 8.0f;
-        public float gravity = 20.0f;
-
-        private CharacterController controller;
-        private Vector3 moveDirection = Vector3.zero;
-
-        private void Start()
+        public class PlayerMovement : MonoBehaviour
         {
-            controller = GetComponent<CharacterController>();
-        }
 
-        void Update()
-        {
-            // Rotate around y - axis
-            transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+            public float speed = 3.0F;
+            public float rotateSpeed = 3.0F;
+            public float jumpSpeed = 8.0f;
+            public float gravity = 20.0f;
 
-            if (controller.isGrounded)
+            private CharacterController controller;
+            private Vector3 moveDirection = Vector3.zero;
+
+            private void Start()
             {
-                // We are grounded, so recalculate
-                // move direction directly from axes
+                controller = GetComponent<CharacterController>();
+            }
 
-                moveDirection = transform.TransformDirection(Vector3.forward);
-                moveDirection *= Input.GetAxis("Vertical");
-                moveDirection *= speed;
+            void Update()
+            {
+                // Rotate around y - axis
+                transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
 
-                if (Input.GetButton("Jump"))
+                if (controller.isGrounded)
                 {
-                    moveDirection.y = jumpSpeed;
-                }
-            }
-            else
-            {
-                // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-                // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-                // as an acceleration (ms^-2)
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
+                    // We are grounded, so recalculate
+                    // move direction directly from axes
 
-            // Move the controller
-            controller.Move(moveDirection * Time.deltaTime);
+                    moveDirection = transform.TransformDirection(Vector3.forward);
+                    moveDirection *= Input.GetAxis("Vertical");
+                    moveDirection *= speed;
+
+                    if (Input.GetButton("Jump"))
+                    {
+                        moveDirection.y = jumpSpeed;
+                    }
+                }
+                else
+                {
+                    // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
+                    // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
+                    // as an acceleration (ms^-2)
+                    moveDirection.y -= gravity * Time.deltaTime;
+                }
+
+                // Move the controller
+                controller.Move(moveDirection * Time.deltaTime);
+            }
         }
     }
 }

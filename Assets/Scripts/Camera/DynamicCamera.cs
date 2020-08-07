@@ -2,28 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TistouUnityPackPuzzleAdventure
+namespace TistouUnity
 {
-    public class DynamicCamera : MonoBehaviour
+    namespace PuzzleAdventurePack
     {
-        [SerializeField] private bool Look_At_Player = false;
-        [SerializeField] private bool Follow_Player = false;
-        private GameObject player;
-
-        void Update()
+        public class DynamicCamera : MonoBehaviour
         {
-            if (Look_At_Player){LookAtPlayer();}
-            else if (Follow_Player){FollowPlayer();}
-        }
+            [SerializeField] private bool _lookAtPlayer = false;
+            [SerializeField] private bool _followPlayer = false;
+            private GameObject _player;
+            private void Start()
+            {
+                _player = GameObject.FindWithTag("player");
+            }
+            void Update()
+            {
+                if (_lookAtPlayer) { LookAtPlayer(); }
+                else if (_followPlayer) { FollowPlayer(); }
+            }
 
-        private void LookAtPlayer()
-        {
-            Debug.Log("look at player");
-        }
+            private void LookAtPlayer()
+            {
+                Debug.Log("look at player");
+            }
 
-        private void FollowPlayer()
-        {
-            Debug.Log("follow player");
+            private void FollowPlayer()
+            {
+                Debug.Log("follow player");
+            }
         }
     }
 }

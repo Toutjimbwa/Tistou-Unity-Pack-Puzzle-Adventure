@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TistouUnityPackPuzzleAdventure
+namespace TistouUnity
 {
-    public class CameraArea : CameraControl
+    namespace PuzzleAdventurePack
     {
-        private void OnTriggerEnter(Collider other)
+        public class CameraArea : CameraControl
         {
-            if (other.gameObject.tag == "Player")
+            private void Start()
             {
-                Add(this);
+                _camera = GetComponentInChildren<Camera>();
             }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.tag == "Player")
+            private void OnTriggerEnter(Collider other)
             {
-                Remove(this);
+                if (other.gameObject.tag == "Player")
+                {
+                    Add(this);
+                }
+            }
+
+            private void OnTriggerExit(Collider other)
+            {
+                if (other.gameObject.tag == "Player")
+                {
+                    Remove(this);
+                }
             }
         }
     }

@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TistouUnityPackPuzzleAdventure
+namespace TistouUnity
 {
-    public class PlayerCamera : CameraControl
+    namespace PuzzleAdventurePack
     {
-        private void Start()
+        public class PlayerCamera : CameraControl
         {
-            _camera = GetComponentInChildren<Camera>();
-        }
+            private void Start()
+            {
+                _camera = GetComponent<Camera>();
+                Add(this);
 
-        // Update is called once per frame
-        void Update()
-        {
-
+                SelectCameraControl();
+            }
         }
     }
 }

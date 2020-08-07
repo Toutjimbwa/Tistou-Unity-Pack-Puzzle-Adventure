@@ -1,61 +1,65 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace TistouUnityPackPuzzleAdventure
+namespace TistouUnity
 {
-    public class CameraControl : MonoBehaviour
+    namespace PuzzleAdventurePack
     {
-        public static CameraControl ActiveControl;
-        public static List<CameraControl> ReadyControls;
-
-        private int priority = 1;
-        private Camera _camera;
-
-        public static void ActivatePriority()
+        public class CameraControl : MonoBehaviour
         {
-            //Check which camera is prioritized
-            CameraControl prio = ReadyControls.OrderBy(cc => cc.priority).FirstOrDefault();
-            //If it has changed, disable last active control, enable active control
-            if (!prio.Equals(ActiveControl))
+            public static CameraControl ActiveControl;
+            public static List<CameraControl> ReadyControls = new List<CameraControl>();
+            public int Grade = 0;
+            protected Camera _camera;
+            protected AudioListener _audioListener;
+            public static void SelectCameraControl()
             {
-                Debug.Log("Camera has changed");
-                //Disable ActiveControl
-                //Change ActiveControl
-                //Enable ActiveControl
+                //Check which camera is prioritized
+                var control = ReadyControls.OrderBy(cc => cc.Grade).FirstOrDefault();
+                //If it has changed, disable last active control, enable active control
+                if (!control.Equals(ActiveControl))
+                {
+                    ActiveControl.Inactivate();
+                    ActiveControl = control;
+                    ActiveControl.Activate();
+                }
             }
-        }
 
-        public static void Add(CameraControl cc)
-        {
-            ReadyControls.Add(cc);
-            ActivatePriority();
-        }
-
-        public static void Remove(CameraControl cc)
-        {
-            ReadyControls.Remove(cc);
-            ActivatePriority();
-        }
-
-        public void Activate()
-        {
-            _camera.enabled = false;
-            DynamicCamera dc = GetComponentInChildren<DynamicCamera>(true);
-            if (dc)
+            public static void Add(CameraControl cc)
             {
-                dc.enabled = true;
+                Debug.Log(cc.gameObject.name);
+                ReadyControls.Add(cc);
+                SelectCameraControl();
             }
-        }
 
-        public void Inactivate()
-        {
-            _camera.enabled = true;
-            DynamicCamera dc = GetComponentInChildren<DynamicCamera>(true);
-            if (dc)
+            public static void Remove(CameraControl cc)
             {
-                dc.enabled = false;
+                ReadyControls.Remove(cc);
+                SelectCameraControl();
+                cc.Inactivate();
+            }
+
+            public void Activate()
+            {
+                _camera.enabled = true;
+                _audioListener.enabled = true;
+                var dc = GetComponentInChildren<DynamicCamera>(true);
+                if (dc)
+                {
+                    dc.enabled = true;
+                }
+            }
+
+            public void Inactivate()
+            {
+                _camera.enabled = false;
+                _audioListener.enabled = false;
+                var dc = GetComponentInChildren<DynamicCamera>(true);
+                if (dc)
+                {
+                    dc.enabled = false;
+                }
             }
         }
     }
