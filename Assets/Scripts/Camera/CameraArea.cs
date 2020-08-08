@@ -11,21 +11,15 @@ namespace TistouUnity
             private void Start()
             {
                 _camera = GetComponentInChildren<Camera>();
+                _audioListener = GetComponentInChildren<AudioListener>();
             }
-            private void OnTriggerEnter(Collider other)
+            public void PlayerEnteredArea()
             {
-                if (other.gameObject.tag == "Player")
-                {
-                    Add(this);
-                }
+                Add(this);
             }
-
-            private void OnTriggerExit(Collider other)
+            public void PlayerExitedArea()
             {
-                if (other.gameObject.tag == "Player")
-                {
-                    Remove(this);
-                }
+                Remove(this);
             }
         }
     }

@@ -13,7 +13,7 @@ namespace TistouUnity
             private GameObject _player;
             private void Start()
             {
-                _player = GameObject.FindWithTag("player");
+                _player = GameObject.FindWithTag("Player");
             }
             void Update()
             {

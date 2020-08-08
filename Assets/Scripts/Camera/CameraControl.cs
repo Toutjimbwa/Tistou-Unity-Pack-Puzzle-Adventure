@@ -16,11 +16,14 @@ namespace TistouUnity
             public static void SelectCameraControl()
             {
                 //Check which camera is prioritized
-                var control = ReadyControls.OrderBy(cc => cc.Grade).FirstOrDefault();
+                var control = ReadyControls.OrderByDescending(cc => cc.Grade).FirstOrDefault();
                 //If it has changed, disable last active control, enable active control
                 if (!control.Equals(ActiveControl))
                 {
-                    ActiveControl.Inactivate();
+                    if( ActiveControl)
+                    {
+                        ActiveControl.Inactivate();
+                    }
                     ActiveControl = control;
                     ActiveControl.Activate();
                 }
@@ -28,7 +31,6 @@ namespace TistouUnity
 
             public static void Add(CameraControl cc)
             {
-                Debug.Log(cc.gameObject.name);
                 ReadyControls.Add(cc);
                 SelectCameraControl();
             }

@@ -11,6 +11,7 @@ namespace TistouUnity
             private void Start()
             {
                 _camera = GetComponent<Camera>();
+                _audioListener = GetComponent<AudioListener>();
                 Add(this);
 
                 SelectCameraControl();
