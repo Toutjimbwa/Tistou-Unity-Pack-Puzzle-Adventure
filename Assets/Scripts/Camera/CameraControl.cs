@@ -63,6 +63,11 @@ namespace TistouUnity
                     dc.enabled = false;
                 }
             }
+
+            public void ResetReadyControls()
+            {
+                ReadyControls.Clear();
+            }
         }
     }
 }
