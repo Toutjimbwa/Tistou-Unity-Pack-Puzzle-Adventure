@@ -9,7 +9,7 @@ namespace TistouUnity
         public class GameController : MonoBehaviour
         {
             private static GameController _gameController = null;
-            void Start()
+            void Awake()
             {
                 if (!_gameController)
                 {

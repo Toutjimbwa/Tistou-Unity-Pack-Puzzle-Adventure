@@ -16,15 +16,15 @@ namespace TistouUnity
             public static void SelectCameraControl()
             {
                 //Check which camera is prioritized
-                var control = ReadyControls.OrderByDescending(cc => cc.Grade).FirstOrDefault();
+                var cameraControl = ReadyControls.OrderByDescending(cc => cc.Grade).FirstOrDefault();
                 //If it has changed, disable last active control, enable active control
-                if (!control.Equals(ActiveControl))
+                if (!cameraControl.Equals(ActiveControl))
                 {
-                    if( ActiveControl)
+                    if(ActiveControl)
                     {
                         ActiveControl.Inactivate();
                     }
-                    ActiveControl = control;
+                    ActiveControl = cameraControl;
                     ActiveControl.Activate();
                 }
             }
