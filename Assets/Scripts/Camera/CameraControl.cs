@@ -8,41 +8,41 @@ namespace TistouUnity
     {
         public class CameraControl : MonoBehaviour
         {
-            public static CameraControl ActiveControl;
-            public static List<CameraControl> ReadyControls = new List<CameraControl>();
+            private static CameraControl _activeControl;
+            private static List<CameraControl> _readyControls = new List<CameraControl>();
             public int Grade = 0;
             protected Camera _camera;
             protected AudioListener _audioListener;
-            public static void SelectCameraControl()
+            private static void SelectCameraControl()
             {
                 //Check which camera is prioritized
-                var cameraControl = ReadyControls.OrderByDescending(cc => cc.Grade).FirstOrDefault();
+                var cameraControl = _readyControls.OrderByDescending(cc => cc.Grade).FirstOrDefault();
                 //If it has changed, disable last active control, enable active control
-                if (!cameraControl.Equals(ActiveControl))
+                if (!cameraControl.Equals(_activeControl))
                 {
-                    if(ActiveControl)
+                    if(_activeControl)
                     {
-                        ActiveControl.Inactivate();
+                        _activeControl.Inactivate();
                     }
-                    ActiveControl = cameraControl;
-                    ActiveControl.Activate();
+                    _activeControl = cameraControl;
+                    _activeControl.Activate();
                 }
             }
 
-            public static void Add(CameraControl cc)
+            protected static void Add(CameraControl cc)
             {
-                ReadyControls.Add(cc);
+                _readyControls.Add(cc);
                 SelectCameraControl();
             }
 
-            public static void Remove(CameraControl cc)
+            protected static void Remove(CameraControl cc)
             {
-                ReadyControls.Remove(cc);
+                _readyControls.Remove(cc);
                 SelectCameraControl();
                 cc.Inactivate();
             }
 
-            public void Activate()
+            private void Activate()
             {
                 _camera.enabled = true;
                 _audioListener.enabled = true;
@@ -53,7 +53,7 @@ namespace TistouUnity
                 }
             }
 
-            public void Inactivate()
+            private void Inactivate()
             {
                 _camera.enabled = false;
                 _audioListener.enabled = false;
@@ -66,7 +66,7 @@ namespace TistouUnity
 
             public void ResetReadyControls()
             {
-                ReadyControls.Clear();
+                _readyControls.Clear();
             }
         }
     }
