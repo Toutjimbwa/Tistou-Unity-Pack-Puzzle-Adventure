@@ -40,6 +40,10 @@ namespace TistouUnity
             {
                 _model.localPosition = _modelOriginalPos;
             }
+            public bool InInventory()
+            {
+                return GetComponentInParent<Inventory>() ? true : false;
+            }
         }
     }
 }

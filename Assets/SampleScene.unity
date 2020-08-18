@@ -1702,6 +1702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatY: 0.5
+  _modelOriginalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1063440976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6830631471984210950, guid: a6050f604240f8c44b3f8eab12dfd9ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6830631472572460256, guid: a6050f604240f8c44b3f8eab12dfd9ba,
         type: 3}
       propertyPath: m_Size.x
@@ -2010,6 +2016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830631473095074038, guid: a6050f604240f8c44b3f8eab12dfd9ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6830631473095074039, guid: a6050f604240f8c44b3f8eab12dfd9ba,
         type: 3}
@@ -2222,6 +2233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatY: 0.5
+  _modelOriginalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1278489144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatY: 0.5
+  _modelOriginalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1703043056
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,6 +3021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatY: 0.5
+  _modelOriginalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1772817437
 GameObject:
   m_ObjectHideFlags: 0
