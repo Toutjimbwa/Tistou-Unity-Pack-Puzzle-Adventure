@@ -361,9 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459794ba310857c4cb8abec6061783fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 6830631471984210946, guid: a6050f604240f8c44b3f8eab12dfd9ba,
-    type: 3}
-  EnterScene: SampleScene
+  EnterScene: Start
   _warpTag: 0
 --- !u!65 &596340623
 BoxCollider:
