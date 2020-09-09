@@ -7,7 +7,7 @@ namespace TistouUnity
     namespace PuzzleAdventurePack
     {
         [CustomPropertyDrawer(typeof(SceneNameAttribute))]
-        public class SceneNameDrawer : PropertyDrawer
+        public class SceneNameDrawer : UnityEditor.PropertyDrawer
         {
             private int _sceneIndex = -1;
             private GUIContent[] _sceneNames;

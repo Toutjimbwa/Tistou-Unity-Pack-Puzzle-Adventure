@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/InsideHouse.unity
     guid: 2ccf755d2f80fce429dbceebbf4f4fb0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Start.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/InsideMountain.unity
     guid: e72a18fabc9e6a1478b5adc672f4da27
+  - enabled: 1
+    path: Assets/AI/Flee/Flee.unity
+    guid: 936c9f6c6b62961439ccaf709a7665dd
   m_configObjects: {}

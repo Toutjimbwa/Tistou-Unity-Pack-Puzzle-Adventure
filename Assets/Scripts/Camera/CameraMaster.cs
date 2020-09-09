@@ -9,7 +9,7 @@ namespace TistouUnity
     {
         public class CameraMaster : CameraControl
         {
-            private void Awake()
+            private void Start()
             {
                 SceneManager.sceneLoaded += ResetCameras;
                 ResetCameras();

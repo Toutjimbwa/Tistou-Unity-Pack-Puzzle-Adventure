@@ -31,6 +31,10 @@ namespace TistouUnity
 
             protected static void Add(CameraControl cc)
             {
+                if (_readyControls.Contains(cc))
+                {
+                    Debug.Log($"YES {cc.gameObject.name} cameracontrol exists");
+                }
                 _readyControls.Add(cc);
                 SelectCameraControl();
             }

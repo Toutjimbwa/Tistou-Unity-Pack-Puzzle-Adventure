@@ -9,12 +9,7 @@ namespace TistouUnity
     {
         public class PlayerCamera : CameraControl
         {
-            private void Start()
-            {
-                SceneManager.sceneLoaded += LoadCamera;
-                LoadCamera();
-            }
-            private void LoadCamera(Scene scene, LoadSceneMode mode)
+            private void OnEnable()
             {
                 LoadCamera();
             }

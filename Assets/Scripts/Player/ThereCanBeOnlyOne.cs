@@ -9,7 +9,6 @@ namespace TistouUnity
         public class ThereCanBeOnlyOne : MonoBehaviour
         {
             private static GameObject _theOne = null;
-
             private void Start()
             {
                 if (_theOne)
@@ -21,7 +20,6 @@ namespace TistouUnity
                     _theOne = gameObject;
 
                 }
-                Debug.Log($"{gameObject.name}: {_theOne.name}");
             }
         }
     }
