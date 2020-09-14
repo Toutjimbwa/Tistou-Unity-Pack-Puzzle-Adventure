@@ -3144,6 +3144,7 @@ GameObject:
   - component: {fileID: 1132024075}
   - component: {fileID: 1132024080}
   - component: {fileID: 1132024079}
+  - component: {fileID: 1132024081}
   m_Layer: 0
   m_Name: Creature
   m_TagString: Untagged
@@ -3254,7 +3255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132024074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 207ef56f805532248b3365091f5d7a84, type: 3}
   m_Name: 
@@ -3263,6 +3264,20 @@ MonoBehaviour:
   EnemyDistanceRun: 4
   distanceToPlayer: 0
   state: 0
+--- !u!114 &1132024081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132024074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321d103ca411a1148bef5a31b8409b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 524492282}
+  agent: {fileID: 1132024079}
 --- !u!1 &1175387893
 GameObject:
   m_ObjectHideFlags: 0

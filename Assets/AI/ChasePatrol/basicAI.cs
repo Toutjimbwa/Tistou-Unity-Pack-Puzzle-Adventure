@@ -9,7 +9,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         public NavMeshAgent agent;
         public ThirdPersonCharacter character;
-        
+
         public enum State
         {
             Patrol,
