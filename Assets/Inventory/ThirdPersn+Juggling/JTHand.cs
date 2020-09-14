@@ -15,7 +15,7 @@ public class JTHand : MonoBehaviour
     {
         _item = item;
         item.transform.parent = transform;
-        item.transform.localPosition = new Vector3(0, 1.55f, 0);
+        item.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     public void Drop(JTItem item)

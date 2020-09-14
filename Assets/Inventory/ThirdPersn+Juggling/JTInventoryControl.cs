@@ -12,7 +12,11 @@ public class JTInventoryControl : MonoBehaviour
     public float rotSpeed = 250;
     public float damping = 10;
     private Quaternion desiredRotQ;
-    private void Start()
+
+    //Combine
+    public JTCombine combine;
+    public JTPickUpAbility pickUpAbility;
+    private void OnEnable()
     {
         desiredRotQ = transform.rotation;
     }
@@ -55,11 +59,17 @@ public class JTInventoryControl : MonoBehaviour
         var RItem = Right.GetItem();
         if (LItem && RItem)
         {
-            //TODO Insert Check if the items can be combined
-            Left.Drop(LItem);
-            LItem.transform.parent = RItem.transform;
-            LItem.transform.localPosition = new Vector3(0, 0, 0);
-            Destroy(LItem);
+            var newItem = combine.Combine(LItem, RItem);
+            if (newItem)
+            {
+                Left.Drop(LItem);
+                Destroy(LItem.gameObject);
+                Right.Drop(RItem);
+                Destroy(RItem.gameObject);
+
+                var GO = Instantiate(newItem);
+                pickUpAbility.PickUp(GO.GetComponent<JTItem>());
+            }
         }
     }
 

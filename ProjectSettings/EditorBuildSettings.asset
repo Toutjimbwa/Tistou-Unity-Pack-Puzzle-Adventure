@@ -17,7 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AI/Flee/Flee.unity
     guid: 936c9f6c6b62961439ccaf709a7665dd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Inventory/Rotating bubble prototype/Bubble.unity
     guid: 427603fa74b345946919309482d2bb86
+  - enabled: 1
+    path: Assets/Inventory/ThirdPersn+Juggling/JugglingThirdPerson.unity
+    guid: d5852539506c72548a2c10963a4e2a1f
+  - enabled: 1
+    path: Assets/Inventory/ThirdPersn+Juggling/GameOver.unity
+    guid: b2de2d2bf4c07d243866194ed2271bb1
   m_configObjects: {}
