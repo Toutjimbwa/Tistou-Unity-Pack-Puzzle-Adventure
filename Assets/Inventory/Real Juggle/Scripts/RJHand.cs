@@ -2,18 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RJHand : MonoBehaviour
+public class RJHand : RJSlot
 {
-    public RJItem _item;
-    private void OnEnable()
-    {
-        _item = GetComponentInChildren<RJItem>();
-    }
-    public RJItem GetItem()
-    {
-        return _item;
-    }
-
     public void PickUp(RJItem item)
     {
         if (item)
@@ -21,24 +11,8 @@ public class RJHand : MonoBehaviour
             _item = item;
             _item.PutIntoInventory();
             item.transform.parent = transform;
-            item.flyTo(transform.position);
-        }
-    }
-    public void CatchInInventory(RJItem item)
-    {
-        if (item)
-        {
-            _item = item;
-            item.transform.parent = transform;
-            item.flyTo(transform.position);
-        }
-    }
-    public void ReleaseInInventory()
-    {
-        if (_item)
-        {
-            _item.transform.parent = null;
-            _item = null;
+            item.transform.localPosition = new Vector3(0, 0, 0);
+            item.MoveModelDown();
         }
     }
     public void Drop()

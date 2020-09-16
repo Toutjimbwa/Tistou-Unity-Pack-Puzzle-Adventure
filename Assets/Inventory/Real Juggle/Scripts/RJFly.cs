@@ -13,7 +13,7 @@ public class RJFly : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, _moveToHere) > 0.01f)
         {
-            transform.position = Vector3.Lerp(transform.position, _moveToHere, 0.1f);
+            transform.position = Vector3.Lerp(transform.position, _moveToHere, 0.2f);
         }
     }
     public void MoveTo(Vector3 position)
