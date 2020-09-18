@@ -86,7 +86,7 @@ public class RJInventory : MonoBehaviour
         places.AddRange(que);
         places.Reverse();
         places.Add(RightHand.gameObject);
-        Debug.Log(places.Count);
+
         if (places.Count > 0)
         {
 

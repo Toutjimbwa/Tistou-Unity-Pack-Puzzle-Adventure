@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BehaviorController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        var testType = other.GetComponent<TestType>();
+        if (testType)
+        {
+            Debug.Log(testType.type);
+            //If type is fish, eat fish.
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
     }
 }
