@@ -217,12 +217,11 @@ GameObject:
   - component: {fileID: 118619039}
   - component: {fileID: 118619038}
   - component: {fileID: 118619043}
-  - component: {fileID: 118619042}
   - component: {fileID: 118619045}
+  - component: {fileID: 118619046}
+  - component: {fileID: 118619042}
   - component: {fileID: 118619047}
   - component: {fileID: 118619044}
-  - component: {fileID: 118619046}
-  - component: {fileID: 118619048}
   m_Layer: 0
   m_Name: 'Creature: Crab '
   m_TagString: Untagged
@@ -298,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118619037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.87, y: 1.55, z: -0.61}
+  m_LocalPosition: {x: -11.6, y: 1.55, z: -3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -311,13 +310,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118619037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321d103ca411a1148bef5a31b8409b8f, type: 3}
+  m_Script: {fileID: 11500000, guid: d32a3780963c12746b99c143f3420b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 15414197}
-  agent: {fileID: 118619043}
+  _food: {fileID: 0}
+  WalkRadius: 4
+  Danger: {fileID: 0}
+  Destination: {fileID: 0}
+  positionPrefab: {fileID: 665427956457908796, guid: 906ee2315ca96f64db07f13b759fb1f6,
+    type: 3}
+  _walking: 0
 --- !u!195 &118619043
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -325,7 +329,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118619037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -349,7 +353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118619037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f6c1bc1a7118cc4ea4205f6ee966eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1015b459d88303d49a704cbc75cf5638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &118619045
@@ -390,22 +394,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 118619037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2be1d9545970e49a6b1474856cafb8, type: 3}
+  m_Script: {fileID: 11500000, guid: d9fe444de691e4e4db586889749d3cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Crab
---- !u!114 &118619048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118619037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487db3dbe0fb12a44acb076ace1d724b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  DistanceToGround: 0.6
+  IsGrounded: 0
 --- !u!1 &179783481
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 925256865}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,8 +515,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925256864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.545561, y: -43.175774, z: -2.7232962}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -20.6, y: -43.175774, z: 8.5}
+  m_LocalScale: {x: 1.4566, y: 1, z: 1.4721}
   m_Children:
   - {fileID: 1640730609}
   - {fileID: 998438522}
@@ -547,7 +540,7 @@ GameObject:
   - component: {fileID: 998438521}
   - component: {fileID: 998438520}
   - component: {fileID: 998438519}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +633,7 @@ GameObject:
   - component: {fileID: 1180302855}
   - component: {fileID: 1180302854}
   - component: {fileID: 1180302853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,19 +734,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1564542435
-MonoBehaviour:
+--- !u!54 &1564542435
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564542434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c2be1d9545970e49a6b1474856cafb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: Fish
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!135 &1564542436
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -822,7 +818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1564542434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.71, y: 2.24, z: -5.43}
+  m_LocalPosition: {x: -9.82, y: -0.33, z: -3.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -840,7 +836,7 @@ GameObject:
   - component: {fileID: 1640730608}
   - component: {fileID: 1640730607}
   - component: {fileID: 1640730606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +930,7 @@ GameObject:
   - component: {fileID: 2030581547}
   - component: {fileID: 2030581546}
   - component: {fileID: 2030581545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1023,7 @@ GameObject:
   - component: {fileID: 2110698535}
   - component: {fileID: 2110698534}
   - component: {fileID: 2110698533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1120,7 +1116,7 @@ GameObject:
   - component: {fileID: 2136359641}
   - component: {fileID: 2136359640}
   - component: {fileID: 2136359639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1213,7 +1209,7 @@ GameObject:
   - component: {fileID: 2144976963}
   - component: {fileID: 2144976962}
   - component: {fileID: 2144976961}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

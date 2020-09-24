@@ -12,6 +12,7 @@ public class BehaviorController : MonoBehaviour
             Debug.Log(testType.type);
             //If type is fish, eat fish.
 
+
         }
     }
 }

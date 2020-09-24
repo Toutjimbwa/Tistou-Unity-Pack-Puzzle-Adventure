@@ -7,13 +7,14 @@ public class TalkAbility : MonoBehaviour
     public KeyCode TalkButton = KeyCode.T;
     public Talk _talk;
     public TalkController _talkController;
+    public RJHand RightHand;
     private void Update()
     {
         if (Input.GetKeyDown(TalkButton))
         {
             if (_talk)
             {
-                _talkController.StartTalk(_talk);
+                _talkController.StartTalk(_talk, RightHand.GetItem());
             }
         }
     }
